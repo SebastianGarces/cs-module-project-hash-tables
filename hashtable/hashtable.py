@@ -201,13 +201,11 @@ class HashTable:
 
         for item in old_store:
             if item:
-                curr_ll = item
-                while curr_ll.head is not None:
-                    curr_node = curr_ll.head
-                    self.put(curr_node.key, curr_node.value)
-                    curr_ll.delete(curr_node.key)
+                while item.head:
+                    self.put(item.head.key, item.head.value)
+                    item.delete(item.head.key)
 
-                curr_ll = None
+                item = None
 
 
 if __name__ == "__main__":
